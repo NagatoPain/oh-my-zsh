@@ -31,7 +31,8 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git mercurial svn \
-    ssh-agent gpg-agent)
+    ssh-agent gpg-agent \
+    compleat)
 
 source $ZSH/oh-my-zsh.sh
 
