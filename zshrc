@@ -33,7 +33,8 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git mercurial svn \
     ssh-agent gpg-agent \
     compleat \
-    command-not-found)
+    command-not-found \
+    extract)
 
 source $ZSH/oh-my-zsh.sh
 
