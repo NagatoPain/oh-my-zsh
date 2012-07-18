@@ -32,7 +32,8 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git mercurial svn \
     ssh-agent gpg-agent \
-    compleat)
+    compleat \
+    command-not-found)
 
 source $ZSH/oh-my-zsh.sh
 
