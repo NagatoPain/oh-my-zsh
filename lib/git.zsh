@@ -1,7 +1,7 @@
 # get the name of the branch we are on
 function git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+  echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$(parse_git_stash)$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
 
 
@@ -16,13 +16,16 @@ parse_git_dirty() {
   else
     echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
   fi
-  if [[ -n $(git stash list 2> /dev/null) ]]; then
-      echo "$ZSH_THEME_GIT_PROMPT_STASH"
-  else
-      echo "$ZSH_THEME_GIT_PROMPT_NOSTASH"
-  fi
 }
 
+# Checks if working place has stash
+parse_git_stash() {
+    if [[ -n $(git stash list 2> /dev/null) ]]; then
+        echo "$ZSH_THEME_GIT_PROMPT_STASH"
+    else
+        echo "$ZSH_THEME_GIT_PROMPT_NOSTASH"
+    fi
+}
 
 # Checks if there are commits ahead from remote
 function git_prompt_ahead() {
