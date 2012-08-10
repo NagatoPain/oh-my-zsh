@@ -1,3 +1,6 @@
 [submodule "custom/plugins/dircolors-solarized"]
 	path = custom/plugins/dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized.git
+[submodule "custom/plugins/auto-fu"]
+	path = custom/plugins/auto-fu
+	url = https://github.com/NagatoPain/auto-fu.zsh.git
