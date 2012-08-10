@@ -13,7 +13,10 @@ alias -- -='cd -'
 # Super user
 alias _='sudo'
 
+# Grep
 #alias g='grep -in'
+#alias grep='grep --color=auto'
+#alias grep.ack='ack-grep -il'
 
 # Show history
 alias history='fc -l 1'
