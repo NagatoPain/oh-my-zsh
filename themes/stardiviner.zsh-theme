@@ -58,17 +58,17 @@ fi
 zstyle ':vcs_info:*' enable git cvs svn hg
 
 # {{{ GIT PROMPT
-ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="git:%{$fg[blue]%}(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg_bold[yellow]%}✗%{$fg_bold[black]%}|%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}) %{$fg_bold[green]%}✓%{$fg_bold[black]%}|%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[white]%}(%{$fg_bold[yellow]%}✗%{$fg[white]%})%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}) %{$fg[white]%}(%{$fg_bold[green]%}✓%{$fg[white]%})%{$reset_color%}"
 ## git status
-ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
-ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[cyan]%} ∓"
-ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%} ✖"
-ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[yellow]%} ➜"
-ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[magenta]%} ≠"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[white]%} ⌂"
+ZSH_THEME_GIT_PROMPT_ADDED="%{$reset_color%} %{$fg[green]%}✚"
+ZSH_THEME_GIT_PROMPT_MODIFIED="%{$reset_color%} %{$fg[cyan]%}∓"
+ZSH_THEME_GIT_PROMPT_DELETED="%{$reset_color%} %{$fg[red]%}✖"
+ZSH_THEME_GIT_PROMPT_RENAMED="%{$reset_color%} %{$fg[yellow]%}➜"
+ZSH_THEME_GIT_PROMPT_UNMERGED="%{$reset_color%} %{$fg[white]$bg[red]%}≠"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$reset_color%} %{$fg[white]%}⌂"
 ZSH_THEME_GIT_PROMPT_STASH="%{$reset_color%} %{$fg[white]$bg[cyan]%}Ξ"
 # }}}
 
@@ -115,7 +115,7 @@ local female='%{$fg[green]%}♀%{$reset_color%}'
 local fuck='%{$fg[yellow]%}fuck%{$reset_color%}'
 
 # local right_sign='%{$fg_bold[white]%} ⑆ %{$reset_color%}'
-local right_sign='%{$fg_bold[white]%} [妖] %{$reset_color%}'
+local right_sign='%{$fg_bold[white]%} [凌风逐雪] %{$reset_color%}'
 
 if [ "$(whoami) == 'chris'" -a "$(hostname) == 'stardiviner'" ]; then
     local ssh_info='%{$fg[green]%}$(whoami)%{$fg[cyan]%}@%{$fg[yellow]%}localhost %{$reset_color%}'
@@ -177,7 +177,7 @@ local separator_5='%{$fg[cyan]%}/'
 
 # left side PROMPT
 PROMPT="
- ${full_path} ${separator_1}
+  长门 ${full_path} ${separator_1}
 ${pre_prompt} ${git_branch}${git_status}${svn_info}${rvm_info} "
 # PS1="${return_code}"
 
