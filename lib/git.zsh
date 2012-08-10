@@ -16,6 +16,11 @@ parse_git_dirty() {
   else
     echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
   fi
+  if [[ -n $(git stash list 2> /dev/null) ]]; then
+      echo "$ZSH_THEME_GIT_PROMPT_STASH"
+  else
+      echo "$ZSH_THEME_GIT_PROMPT_NOSTASH"
+  fi
 }
 
 
