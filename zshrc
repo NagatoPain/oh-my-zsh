@@ -332,3 +332,14 @@ eval `dircolors $ZSH/custom/plugins/dircolors-solarized/dircolors.256dark`
     export QT_IM_MODULE=fcitx
 # }}}
 
+
+# tmux {{{
+if [ -n "$TMUX" ]; then # if terminal is Tmux.
+    echo "Now, you're in tmux."
+elif [ -n "$SCREEN" ]; then
+    echo "Now, you're in screen"
+else
+    tmux
+fi
+# }}}
+
