@@ -41,6 +41,27 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
+# 256 colors TERM {{{
+if [ -n "$XTERM_VERSION" ]; then # if terminal is xterm.
+    if [ -e /usr/share/terminfo/x/xterm+256color ]; then
+        export TERM="xterm-256color"
+    fi
+else
+    export TERM="xterm-256color"
+fi
+# FIXME 13: parse error: condition expected: =
+if [ "$COLORTERM" = "rxvt-xpm" ]; then # if terminal is urxvt.
+    if [ -e /usr/share/terminfo/r/rxvt-unicode-256color ]; then
+        export TERM="rxvt-unicode-256color"
+    fi
+fi
+#[ -z "$TMUX" ] && export TERM=xterm-256color
+#[ -z "$TMUX" ] && export TERM="screen-256color"
+if [ -n "$TMUX" ]; then # if terminal is Tmux.
+    export TERM="screen-256color"
+fi
+# }}}
+
 # [ auto-fu.zsh ] {{{
     ## way-1: source it
     ## 1) source this file.
