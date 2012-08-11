@@ -80,6 +80,28 @@ export CDPATH=.:/media
 # redirect stdout and stderr to file: command |& > file
 # redirect to multiple file same time: command > file.1 > file.2
 
+# colorful man page {{{
+# code meaning
+# ————————-
+# 0      OFF
+# 1       hilight
+# 4       underline
+# 5       blink
+# 7      inverse
+# 8      invisible
+#
+export MANWIDTH=80 # man page width.
+#export PAGER="`which less` -s"
+export BROWSER="$PAGER"
+export LESS_TERMCAP_mb=$'\E[01;43m'
+export LESS_TERMCAP_md=$'\E[04;01;36m' # section like NAME DESCRIPTION
+export LESS_TERMCAP_me=$'\E[0;37m' # [
+# export LESS_TERMCAP_se=$'\E[0;37m' # down
+# export LESS_TERMCAP_so=$'\E[0;40;36m' # bottom status
+export LESS_TERMCAP_ue=$'\E[0;37m' # ]
+export LESS_TERMCAP_us=$'\E[01;33m' # options
+# }}}
+
 # [ auto-fu.zsh ] {{{
     ## way-1: source it
     ## 1) source this file.
