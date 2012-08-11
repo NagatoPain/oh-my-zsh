@@ -195,10 +195,32 @@ fpath=($ZSH/custom/plugins/zsh-completions/src $fpath)
 # }}}
 
 # AutoComplete {{{
+
+# config uses styles:
+#   zstyle context style value...
+# - where 'context' maybe a pattern match the following form:
+#   :completion:func:completer:cmd:arg:tag
+# in which:
+#       completion
+# - literal string always used by completion functions:
+#       func
+# - Name of directly called widget, blank for contextual completion:
+#       completer
+# - Method of completion e.g. complete; see below
+#       cmd
+# - Name of command being completed, or special command context
+#       arg
+# - Only valid with standard parsing: arg-n for Nth argument,
+#   option-opt-n for Nth argument of option opt.
+#       tag
+# - Indication of type of thing to be completed at this point.
+# check out those detail in file: refcard.pdf
+
 # auto complete category verbose
 autoload -Uz compinit bashcompinit
 compinit
 bashcompinit
+
 # be verbose, i.e. show descriptions
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
