@@ -62,6 +62,9 @@ if [ -n "$TMUX" ]; then # if terminal is Tmux.
 fi
 # }}}
 
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git hg bzr svn
+
 # [ auto-fu.zsh ] {{{
     ## way-1: source it
     ## 1) source this file.
