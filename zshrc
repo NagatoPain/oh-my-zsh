@@ -34,7 +34,7 @@ plugins=(ssh-agent gpg-agent \
     git mercurial svn git-flow \
     compleat \
     command-not-found \
-    gem pip \
+    ruby gem pip \
     extract)
 
 source $ZSH/oh-my-zsh.sh
