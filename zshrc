@@ -154,6 +154,16 @@ setopt HISTIGNORESPACE
 # use comment in interactive mode
 # }}}
 
+# record sudo command history into syslog {{{
+zshaddhistory() {
+    cmd=${1%%$'\n'}
+    print -sr -- $cmd
+    LASTCMD="${(pj:\\\n:)${(f)1}}"
+    first_arg=${${(z)LASTCMD}[1]}
+    ( [[ `id -u $USER` -eq 0 ]] || [[ $first_arg == sudo ]] ) && logger -t "$USER@${TTY/\/dev\/}[$PWD]" $LASTCMD
+}
+# }}}
+
 # [ auto-fu.zsh ] {{{
     ## way-1: source it
     ## 1) source this file.
