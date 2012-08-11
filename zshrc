@@ -65,6 +65,12 @@ fi
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git hg bzr svn
 
+# add user home bin/ and scripts/ into PATH
+if [[ -d $HOME/bin || -d $HOME/scripts ]] ; then
+    PATH=$HOME/bin:$HOME/scripts:$PATH
+    export PATH
+fi
+
 # [ auto-fu.zsh ] {{{
     ## way-1: source it
     ## 1) source this file.
