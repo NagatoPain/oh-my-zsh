@@ -190,6 +190,10 @@ alias -s png=feh
 alias -s jpg=feh
 # }}}
 
+# [ zsh-completions ] {{{
+fpath=($ZSH/custom/plugins/zsh-completions/src $fpath)
+# }}}
+
 # AutoComplete {{{
 # auto complete category verbose
 autoload -Uz compinit bashcompinit
