@@ -343,3 +343,10 @@ else
 fi
 # }}}
 
+# Ruby {{{
+    # Rsense {{{
+        export RSENSE_HOME=$HOME/opt/rsense-0.3
+    # }}}
+# }}}
+
+# vim: foldmethod=marker
