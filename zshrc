@@ -164,6 +164,15 @@ zshaddhistory() {
 }
 # }}}
 
+# confirm when reboot/halt/shutdown {{{
+confirm_yes() {
+    sure=$(dialog --stdout  --inputbox "Are you sure that you want to run '$1' command? Type YES to confirm." 10 50)
+    [[ $sure == YES ]] && $1
+}
+
+for c in reboot halt shutdown; do alias $c="confirm_yes $c"; done
+# }}}
+
 # [ auto-fu.zsh ] {{{
     ## way-1: source it
     ## 1) source this file.
