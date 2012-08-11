@@ -102,6 +102,29 @@ export LESS_TERMCAP_ue=$'\E[0;37m' # ]
 export LESS_TERMCAP_us=$'\E[01;33m' # options
 # }}}
 
+# ENVIRONMENT {{{
+    EDITOR=vim
+    export EDITOR=vim
+
+    # for syntax highlight LESS command (need "source-highlight")
+    PAGER='less -X -M' export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s" export LESS=' -R '
+
+    # FVWM
+    #FVWM_USERDIR=$HOME/.fvwm/
+    #FVWM_DATADIR=
+    #FVWM_MODULEDIR=
+    #SESSION_MANAGER=
+    #SESSION_MANAGER_NAME=
+    #SM_SAVE_DIR=
+
+    # locale
+    export LC_ALL=en_US.utf-8
+    export LANG=en_US.UTF-8
+
+    # vim like key binds mode.
+    # set -o vi
+# }}}
+
 # [ auto-fu.zsh ] {{{
     ## way-1: source it
     ## 1) source this file.
