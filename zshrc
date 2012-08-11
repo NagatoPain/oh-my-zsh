@@ -184,7 +184,7 @@ alias -s jpg=feh
 # }}}
 
 # [ zsh-completions ] {{{
-fpath=($ZSH/custom/plugins/zsh-completions/src $fpath)
+fpath=($ZSH_CUSTOM/plugins/zsh-completions/src $fpath)
 # }}}
 
 # AutoComplete {{{
@@ -345,7 +345,7 @@ export PATH="/home/chris/perl5/bin:$PATH";
 # }}}
 
 # for dircolors-solarized colorscheme {{{
-eval `dircolors $ZSH/custom/plugins/dircolors-solarized/dircolors.256dark`
+eval `dircolors $ZSH_CUSTOM/plugins/dircolors-solarized/dircolors.256dark`
 # }}}
 
 # Fcitx {{{
