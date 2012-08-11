@@ -71,6 +71,11 @@ if [[ -d $HOME/bin || -d $HOME/scripts ]] ; then
     export PATH
 fi
 
+# define CD Base directory
+# used to command 'cd' directory.
+# e.g. cd mail -> /etc/mail
+export CDPATH=.:/media
+
 # [ auto-fu.zsh ] {{{
     ## way-1: source it
     ## 1) source this file.
