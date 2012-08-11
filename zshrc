@@ -76,6 +76,10 @@ fi
 # e.g. cd mail -> /etc/mail
 export CDPATH=.:/media
 
+# powerful redirection.
+# redirect stdout and stderr to file: command |& > file
+# redirect to multiple file same time: command > file.1 > file.2
+
 # [ auto-fu.zsh ] {{{
     ## way-1: source it
     ## 1) source this file.
