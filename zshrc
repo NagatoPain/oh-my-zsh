@@ -133,6 +133,15 @@ zstyle :omz:plugins:ssh-agent agent-forwarding on # enable agent forwarding
 zstyle :omz:plugins:ssh-agent id_rsa id_rsa2 id_github # load multiple identies
 # }}}
 
+# corrections {{{
+# 1:
+#zstyle ':completion::approximate:' max-errors 1 numeric
+# 2:
+zstyle ':completion:' completer _complete _match _approximate
+zstyle ':completion::match:' original only
+zstyle ':completion::approximate:*' max-errors 1 numeric
+# }}}
+
 # [ auto-fu.zsh ] {{{
     ## way-1: source it
     ## 1) source this file.
