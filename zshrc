@@ -41,6 +41,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
+source $ZSH_CUSTOM/sources.sh
+
 # 256 colors TERM {{{
 if [ -n "$XTERM_VERSION" ]; then # if terminal is xterm.
     if [ -e /usr/share/terminfo/x/xterm+256color ]; then
@@ -61,24 +63,6 @@ if [ -n "$TMUX" ]; then # if terminal is Tmux.
     export TERM="screen-256color"
 fi
 # }}}
-
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git hg bzr svn
-
-# add user home bin/ and scripts/ into PATH
-if [[ -d $HOME/bin || -d $HOME/scripts ]] ; then
-    PATH=$HOME/bin:$HOME/scripts:$PATH
-    export PATH
-fi
-
-# define CD Base directory
-# used to command 'cd' directory.
-# e.g. cd mail -> /etc/mail
-export CDPATH=.:/media
-
-# powerful redirection.
-# redirect stdout and stderr to file: command |& > file
-# redirect to multiple file same time: command > file.1 > file.2
 
 # colorful man page {{{
 # code meaning
@@ -123,6 +107,17 @@ export LESS_TERMCAP_us=$'\E[01;33m' # options
 
     # vim like key binds mode.
     # set -o vi
+
+    # add user home bin/ and scripts/ into PATH
+    if [[ -d $HOME/bin || -d $HOME/scripts ]] ; then
+        PATH=$HOME/bin:$HOME/scripts:$PATH
+        export PATH
+    fi
+
+    # define CD Base directory
+    # used to command 'cd' directory.
+    # e.g. cd mail -> /etc/mail
+    export CDPATH=.:/media
 # }}}
 
 # gpg-agent require settings & vim plugin vim-gnupg.vim {{{
@@ -191,7 +186,7 @@ alias -s jpg=feh
 # }}}
 
 # [ zsh-completions ] {{{
-fpath=($ZSH/custom/plugins/zsh-completions/src $fpath)
+fpath=($ZSH_CUSTOM/plugins/zsh-completions/src $fpath)
 # }}}
 
 # AutoComplete {{{
@@ -220,6 +215,9 @@ fpath=($ZSH/custom/plugins/zsh-completions/src $fpath)
 autoload -Uz compinit bashcompinit
 compinit
 bashcompinit
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git hg bzr svn
 
 # be verbose, i.e. show descriptions
 zstyle ':completion:*' verbose yes
@@ -349,7 +347,7 @@ export PATH="/home/chris/perl5/bin:$PATH";
 # }}}
 
 # for dircolors-solarized colorscheme {{{
-eval `dircolors $ZSH/custom/plugins/dircolors-solarized/dircolors.256dark`
+eval `dircolors $ZSH_CUSTOM/plugins/dircolors-solarized/dircolors.256dark`
 # }}}
 
 # Fcitx {{{
