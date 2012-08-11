@@ -125,6 +125,14 @@ export LESS_TERMCAP_us=$'\E[01;33m' # options
     # set -o vi
 # }}}
 
+# gpg-agent require settings & vim plugin vim-gnupg.vim {{{
+GPG_TTY=$(tty)
+export GPG_TTY
+# ssh-agent
+zstyle :omz:plugins:ssh-agent agent-forwarding on # enable agent forwarding
+zstyle :omz:plugins:ssh-agent id_rsa id_rsa2 id_github # load multiple identies
+# }}}
+
 # [ auto-fu.zsh ] {{{
     ## way-1: source it
     ## 1) source this file.
