@@ -326,3 +326,9 @@ export PATH="/home/chris/perl5/bin:$PATH";
 eval `dircolors $ZSH/custom/plugins/dircolors-solarized/dircolors.256dark`
 # }}}
 
+# Fcitx {{{
+    export XMODIFIERS=@im=fcitx
+    export GTK_IM_MODULE=fcitx
+    export QT_IM_MODULE=fcitx
+# }}}
+
