@@ -322,3 +322,7 @@ export PERL5LIB="/home/chris/perl5/lib/perl5/i686-linux-gnu-thread-multi-64int:/
 export PATH="/home/chris/perl5/bin:$PATH";
 # }}}
 
+# for dircolors-solarized colorscheme {{{
+eval `dircolors $ZSH/custom/plugins/dircolors-solarized/dircolors.256dark`
+# }}}
+
