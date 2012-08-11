@@ -41,6 +41,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
+source $ZSH_CUSTOM/sources.sh
+
 # 256 colors TERM {{{
 if [ -n "$XTERM_VERSION" ]; then # if terminal is xterm.
     if [ -e /usr/share/terminfo/x/xterm+256color ]; then
