@@ -4,3 +4,6 @@
 [submodule "custom/plugins/auto-fu"]
 	path = custom/plugins/auto-fu
 	url = https://github.com/NagatoPain/auto-fu.zsh.git
+[submodule "custom/plugins/zsh-completions"]
+	path = custom/plugins/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions.git
