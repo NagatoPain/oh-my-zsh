@@ -181,6 +181,15 @@ zle_highlight=(region:bg=magenta # choose region.
                 special:bold # special characters
                 isearch:underline) # keywords when searching.
 
+# Zsh filetype association {{{
+autoload -U zsh-mime-setup
+zsh-mime-setup
+# alias -s [extension]=[program]
+# so that you only need use <Tab> to complete filename.png,
+alias -s png=feh
+alias -s jpg=feh
+# }}}
+
 # [ auto-fu.zsh ] {{{
     ## way-1: source it
     ## 1) source this file.
