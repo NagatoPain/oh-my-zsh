@@ -142,6 +142,18 @@ zstyle ':completion::match:' original only
 zstyle ':completion::approximate:*' max-errors 1 numeric
 # }}}
 
+# history {{{
+# add timestamps to command history file.
+setopt EXTENDED_HISTORY
+# use history for command "cd", cd - [TAB] to go to path history.
+setopt AUTOPUSHD
+# same history path only keep one.
+setopt PUSHDIGNORE_DUPS
+# ignore this command in history if add space before command.
+setopt HISTIGNORESPACE
+# use comment in interactive mode
+# }}}
+
 # [ auto-fu.zsh ] {{{
     ## way-1: source it
     ## 1) source this file.
