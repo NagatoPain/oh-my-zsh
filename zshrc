@@ -173,6 +173,14 @@ confirm_yes() {
 for c in reboot halt shutdown; do alias $c="confirm_yes $c"; done
 # }}}
 
+# e.g. $ cmd # this is comment
+setopt INTERACTIVE_COMMENTS
+# line edit highlight mode
+# Ctrl+@ set mark, between marks and cursor is "region".
+zle_highlight=(region:bg=magenta # choose region.
+                special:bold # special characters
+                isearch:underline) # keywords when searching.
+
 # [ auto-fu.zsh ] {{{
     ## way-1: source it
     ## 1) source this file.
