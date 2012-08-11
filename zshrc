@@ -190,6 +190,59 @@ alias -s png=feh
 alias -s jpg=feh
 # }}}
 
+# AutoComplete {{{
+# auto complete category verbose
+autoload -Uz compinit bashcompinit
+compinit
+bashcompinit
+# be verbose, i.e. show descriptions
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+# group by tag names
+zstyle ':completion:*' group-name ''
+
+# autoload -U compinit
+# compinit
+# zstyle ':completion:*' menu select
+
+autoload -U compinit
+compinit
+# auto complete cache
+zstyle ':completion::complete:' use-cache on
+zstyle ':completion::complete:' cache-path .zcache
+zstyle ':completion::cd:' ignore-parents parent pwd
+# auto complete options
+zstyle ':completion::match:' original only
+zstyle ':completion::prefix-1:' completer _complete
+zstyle ':completion:predict:' completer _complete
+zstyle ':completion:incremental:*' completer _complete _correct
+zstyle ':completion:*' completer _complete _prefix _correct _prefix _match _approximate
+# auto complete path
+zstyle ':completion:' expand 'yes'
+zstyle ':completion:' squeeze-shlashes 'yes'
+zstyle ':completion::complete:*' '\'
+# color complete menu
+eval $(dircolors -b)
+export ZLSCOLORS="${LSCOLORS}"
+zmodload zsh/complist
+zstyle ':completion:*' list-colors ${(s.:.)LSCOLORS}
+zstyle ':completion:::kill::processes' list-colors '=(#b) #([0-9]#)=0=01;31'
+# command kill complete
+compdef pkill=kill
+compdef pkill=killall
+zstyle ':completion:::kill:' menu yes select
+zstyle ':completion:::::processes' force-list always
+zstyle ':completion::processes' command 'ps -au$USER'
+# complete groups
+zstyle ':completion::matches' group 'yes'
+zstyle ':completion:' group-name ''
+zstyle ':completion::options' description 'yes'
+zstyle ':completion::options' auto-description '%d'
+zstyle ':completion::descriptions' format $'\e[01;33m -- %d --\e[0m'
+zstyle ':completion::messages' format $'\e[01;35m -- %d --\e[0m'
+zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
+# }}}
+
 # [ auto-fu.zsh ] {{{
     ## way-1: source it
     ## 1) source this file.
