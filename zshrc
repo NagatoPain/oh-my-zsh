@@ -35,6 +35,7 @@ plugins=(ssh-agent gpg-agent \
     compleat \
     command-not-found \
     ruby gem pip \
+    virtualenvwrapper \
     extract)
 
 source $ZSH/oh-my-zsh.sh
