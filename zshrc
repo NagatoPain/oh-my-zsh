@@ -36,7 +36,10 @@ plugins=(ssh-agent gpg-agent \
     command-not-found \
     ruby gem pip \
     virtualenvwrapper \
-    extract)
+    extract \
+    ## custom/plugins/
+    # mldonkey \
+    \ )
 
 source $ZSH/oh-my-zsh.sh
 
