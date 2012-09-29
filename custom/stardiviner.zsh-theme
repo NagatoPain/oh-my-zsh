@@ -115,7 +115,9 @@ local female='%{$fg[green]%}♀%{$reset_color%}'
 local fuck='%{$fg[yellow]%}fuck%{$reset_color%}'
 
 # local right_sign='%{$fg_bold[white]%} ⑆ %{$reset_color%}'
-local right_sign='%{$fg_bold[white]%} [凌风逐雪] %{$reset_color%}'
+local right_sign='%{$fg_bold[white]%} [六道.轮回眼] %{$reset_color%}'
+ # [六道.轮回眼]
+ # [凌风逐雪]
 
 if [ "$(whoami) == 'chris'" -a "$(hostname) == 'stardiviner'" ]; then
     local ssh_info='%{$fg[green]%}$(whoami)%{$fg[cyan]%}@%{$fg[yellow]%}localhost %{$reset_color%}'
@@ -177,7 +179,7 @@ local separator_5='%{$fg[cyan]%}/'
 
 # left side PROMPT
 PROMPT="
-  长门 ${full_path} ${separator_1}
+长门.佩恩 ${full_path} ${separator_1}
 ${pre_prompt} ${git_branch}${git_status}${svn_info}${rvm_info} "
 # PS1="${return_code}"
 

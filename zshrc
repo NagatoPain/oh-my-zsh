@@ -7,6 +7,7 @@ ZSH=$HOME/.zsh
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="robbyrussell"
 ZSH_THEME="stardiviner"
+# ZSH_THEME="powerline"
 
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
@@ -46,6 +47,24 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 
 source $ZSH_CUSTOM/sources.sh
+
+# Zsh settings {{{
+# disable core dumps
+# limit coredumpsize 0
+
+# Emacs style key bindings
+bindkey -e
+
+# line edit highlight mode
+# Ctrl+@ 设置标记，标记和光标点之间为 region
+# zle_highlight=(region:bg=magenta #选中区域
+#                special:bold      #特殊字符
+#                isearch:underline)#搜索时使用的关键字
+
+#[Esc][h] man 当前命令时，显示简短说明
+alias run-help >&/dev/null && unalias run-help
+autoload run-help
+# }}}
 
 # 256 colors TERM {{{
 if [ -n "$XTERM_VERSION" ]; then # if terminal is xterm.
@@ -114,7 +133,7 @@ export LESS_TERMCAP_us=$'\E[01;33m' # options
 
     # add user home bin/ and scripts/ into PATH
     if [[ -d $HOME/bin || -d $HOME/scripts ]] ; then
-        PATH=$HOME/bin:$HOME/scripts:$PATH
+        PATH=$HOME/bin:$HOME/scripts:$HOME/scripts/git:$PATH
         export PATH
     fi
 
@@ -172,6 +191,7 @@ confirm_yes() {
 for c in reboot halt shutdown; do alias $c="confirm_yes $c"; done
 # }}}
 
+# allow to use comment in interactive mode.
 # e.g. $ cmd # this is comment
 setopt INTERACTIVE_COMMENTS
 # line edit highlight mode
@@ -193,7 +213,7 @@ alias -s jpg=feh
 fpath=($ZSH_CUSTOM/plugins/zsh-completions/src $fpath)
 # }}}
 
-# AutoComplete {{{
+# auto complete {{{ <Tab><Tab> + Ctrl-n/p/f/b
 
 # config uses styles:
 #   zstyle context style value...
@@ -215,10 +235,22 @@ fpath=($ZSH_CUSTOM/plugins/zsh-completions/src $fpath)
 # - Indication of type of thing to be completed at this point.
 # check out those detail in file: refcard.pdf
 
+setopt AUTOLIST
+setopt AUTOMENU
+# enable this option will select candidate directly when complete.
+# setopt MENU_COMPLETE
+
 # auto complete category verbose
 autoload -Uz compinit bashcompinit
 compinit
 bashcompinit
+
+# autoload -U compinit
+# compinit
+
+# zstyle ':completion:*' menu select
+zstyle ':completion:' menu select
+zstyle ':completion::*:default' force-list always
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git hg bzr svn
@@ -229,12 +261,6 @@ zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 # group by tag names
 zstyle ':completion:*' group-name ''
 
-# autoload -U compinit
-# compinit
-# zstyle ':completion:*' menu select
-
-autoload -U compinit
-compinit
 # auto complete cache
 zstyle ':completion::complete:' use-cache on
 zstyle ':completion::complete:' cache-path .zcache
@@ -309,6 +335,14 @@ zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
     #clear # clear zcompile output
     ## }}}
 
+    if [[ -d ~/.zsh/custom/plugins/auto-fu/ ]]; then
+        echo ""
+    else
+        cd ~/.zsh/custom/plugins/
+        # git clone git://github.com/NagatoPain/auto-fu.zsh.git auto-fu
+        git clone git://github.com/hchbaw/auto-fu.zsh.git auto-fu
+    fi
+
     # clean version {{{
     # precompiled source
     function () {
@@ -371,10 +405,39 @@ else
 fi
 # }}}
 
+# tmux-powerline
+# PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
+
 # Ruby {{{
-    # Rsense {{{
-        export RSENSE_HOME=$HOME/opt/rsense-0.3
+    # Gems {{{
+    # config file: `~/.gemrc`
+    export PATH=$HOME/.gem/ruby/1.9.1/bin:$PATH
+    export GEM_HOME="~/.gem/ruby/1.9.1"
     # }}}
+
+    # rvm
+    PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+    # Pry
+    alias irb=pry
+
+    # Rsense {{{
+        export RSENSE_HOME=$HOME/opt/rsense
+    # }}}
+# }}}
+
+# Go lang {{{
+    # gocode setup {{{
+        export GOBIN=$HOME/bin
+        # export PATH=$PATH:$HOME/bin
+        # $ go get -u github.com/nsf/gocode
+    # }}}
+# }}}
+
+# Emacs {{{
+alias emacs='emacsclient -t -a ""'
+# put this line into .zprofile
+# xmodmap ~/.xmodmap
 # }}}
 
 # vim: foldmethod=marker
